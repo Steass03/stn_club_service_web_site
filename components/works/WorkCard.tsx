@@ -50,7 +50,11 @@ export default function WorkCard({ work }: Props) {
             <button
               type="button"
               className="relative block w-full overflow-hidden rounded-lg min-h-[11rem] sm:min-h-[13rem] md:min-h-56 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500"
-              onClick={() => setLightboxIndex(0)}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setLightboxIndex(0);
+              }}
               aria-label={`Відкрити фото: ${work.title}`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -84,7 +88,11 @@ export default function WorkCard({ work }: Props) {
                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-500
                       w-20 h-16 sm:w-24 sm:h-[4.5rem]
                     "
-                    onClick={() => setLightboxIndex(i + 1)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setLightboxIndex(i + 1);
+                    }}
                     aria-label={`Фото ${i + 2} з ${validUrls.length}`}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}

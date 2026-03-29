@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 type Props = {
   open: boolean;
@@ -18,6 +19,11 @@ export default function WorkGalleryLightbox({
   imageLabel,
 }: Props) {
   const [idx, setIdx] = useState(startIndex);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (open) setIdx(Math.min(Math.max(0, startIndex), Math.max(0, urls.length - 1)));
@@ -51,18 +57,22 @@ export default function WorkGalleryLightbox({
     };
   }, [open]);
 
-  if (!open || urls.length === 0) return null;
+  if (!open || urls.length === 0 || !mounted) return null;
 
   const src = urls[idx];
   const multi = urls.length > 1;
 
-  return (
+  const overlay = (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 bg-black/92"
       role="dialog"
       aria-modal="true"
       aria-label={`Галерея: ${imageLabel}`}
-      onClick={onClose}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        onClose();
+      }}
     >
       <button
         type="button"
@@ -72,6 +82,7 @@ export default function WorkGalleryLightbox({
           text-white text-xl leading-none hover:bg-white/10 transition-colors
         "
         onClick={(e) => {
+          e.preventDefault();
           e.stopPropagation();
           onClose();
         }}
@@ -89,6 +100,7 @@ export default function WorkGalleryLightbox({
             text-white text-lg hover:bg-white/10 transition-colors
           "
           onClick={(e) => {
+            e.preventDefault();
             e.stopPropagation();
             goPrev();
           }}
@@ -100,7 +112,10 @@ export default function WorkGalleryLightbox({
 
       <div
         className="relative max-h-[min(90dvh,900px)] max-w-[min(96vw,1200px)] flex flex-col items-center gap-3"
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -124,6 +139,7 @@ export default function WorkGalleryLightbox({
             text-white text-lg hover:bg-white/10 transition-colors
           "
           onClick={(e) => {
+            e.preventDefault();
             e.stopPropagation();
             goNext();
           }}
@@ -134,4 +150,6 @@ export default function WorkGalleryLightbox({
       )}
     </div>
   );
+
+  return createPortal(overlay, document.body);
 }
