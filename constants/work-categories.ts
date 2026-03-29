@@ -11,4 +11,5 @@ export const WORK_CATEGORY_SITE_ORDER: Record<string, number> = {
   Електрика: 3,
   "Клімат і охолодження": 4,
   "Додаткові послуги": 5,
+  "Кузовні роботи": 6,
 };

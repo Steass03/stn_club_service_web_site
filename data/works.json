@@ -1,6 +1,22 @@
 {
   "works": [
     {
+      "id": "4",
+      "slug": "renault-podryapyny-poliruvannya-kuzova",
+      "title": "Renault — видалення подряпин та полірування кузова",
+      "description": "Усунули подряпину на кузові автомобіля та виконали полірування для відновлення зовнішнього вигляду.",
+      "category": "Кузовні роботи",
+      "date": "2026-03-28",
+      "tags": [
+        "Renault",
+        "полірування",
+        "подряпина",
+        "кузов",
+        "дітейлінг"
+      ],
+      "images": ["/works/renault.jpg", "/works/renault2.jpg"]
+    },
+    {
       "id": "1",
       "slug": "mercedes-benz-pompa-roliki-generatora",
       "title": "Mercedes-Benz — заміна помпи та роликів генератора",
