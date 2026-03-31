@@ -17,6 +17,25 @@
       "images": ["/works/renault.jpg", "/works/renault2.jpg"]
     },
     {
+      "id": "5",
+      "slug": "dodge-journey-podryapyny-poliruvannya-kuzova",
+      "title": "Dodge Journey — видалення подряпин та полірування кузова",
+      "description": "Виконали усунення численних подряпин на дверях автомобіля Dodge Journey. Поверхня мала явні потертості та помутніння лаку. Після підготовки провели полірування, в результаті чого відновили глянець та значно покращили зовнішній вигляд кузова.",
+      "category": "Кузовні роботи",
+      "date": "2026-03-28",
+      "tags": [
+        "Dodge",
+        "Journey",
+        "Dodge Journey",
+        "полірування",
+        "видалення подряпин",
+        "подряпини",
+        "кузов",
+        "детейлінг"
+      ],
+      "images": ["/works/dodge1.jpg", "/works/dodge2.jpg"]
+    },
+    {
       "id": "1",
       "slug": "mercedes-benz-pompa-roliki-generatora",
       "title": "Mercedes-Benz — заміна помпи та роликів генератора",
